@@ -1186,3 +1186,146 @@ p {
     }
 }
 
+
+
+.produto-descricao-pequena {
+    color: var(--color-gray-dark);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-gray-light);
+    border-radius: 6px;
+    border-left: 3px solid var(--color-secondary);
+}
+
+.beneficios-titulo {
+    color: var(--color-primary);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* OFERTA PILOTO */
+.oferta-piloto {
+    padding: var(--spacing-xxl) 0;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, rgba(168, 197, 168, 0.15) 100%);
+}
+
+.oferta-piloto-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.oferta-piloto-subtitle {
+    text-align: center;
+    color: var(--color-gray-dark);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xxl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.oferta-piloto-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xxl);
+    background-color: var(--color-white);
+    padding: var(--spacing-xxl);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.oferta-piloto-vantagens,
+.oferta-piloto-requisitos {
+    padding: var(--spacing-lg);
+}
+
+.oferta-piloto-vantagens h3,
+.oferta-piloto-requisitos h3 {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.oferta-piloto-vantagens ul,
+.oferta-piloto-requisitos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.oferta-piloto-vantagens li,
+.oferta-piloto-requisitos li {
+    padding: var(--spacing-md) 0 var(--spacing-md) 1.5rem;
+    position: relative;
+    color: var(--color-gray-dark);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.oferta-piloto-vantagens li:before,
+.oferta-piloto-requisitos li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.oferta-piloto-conclusao {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-top: var(--spacing-lg);
+    font-size: 1rem;
+}
+
+.oferta-piloto-cta {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    background-color: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.oferta-piloto-chamada {
+    color: var(--color-gray-dark);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.6;
+}
+
+.oferta-piloto-button {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-md) var(--spacing-xxl);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-block;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.oferta-piloto-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(139, 157, 195, 0.4);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .oferta-piloto-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg);
+    }
+
+    .oferta-piloto-vantagens,
+    .oferta-piloto-requisitos {
+        padding: var(--spacing-md);
+    }
+}
+
