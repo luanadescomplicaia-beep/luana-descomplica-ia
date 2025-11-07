@@ -1330,3 +1330,237 @@ p {
     }
 }
 
+
+
+/* MODAL PILOTO */
+.modal-piloto {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-piloto.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-piloto-content {
+    background-color: var(--color-white);
+    padding: var(--spacing-xxl);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-piloto-close {
+    position: absolute;
+    right: var(--spacing-lg);
+    top: var(--spacing-lg);
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--color-gray-dark);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-piloto-close:hover {
+    color: var(--color-primary);
+}
+
+.modal-piloto-content h2 {
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.modal-piloto-subtitle {
+    text-align: center;
+    color: var(--color-gray-dark);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* FORMULÁRIO PILOTO */
+.formulario-piloto {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-fieldset {
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    background-color: var(--color-gray-light);
+}
+
+.form-fieldset legend {
+    font-weight: 600;
+    color: var(--color-primary);
+    padding: 0 var(--spacing-md);
+    font-size: 0.95rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--color-gray-dark);
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group textarea {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--color-gray-medium);
+    border-radius: 6px;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(139, 157, 195, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Radio Buttons */
+.form-group-radio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--color-gray-dark);
+}
+
+.radio-label input[type="radio"] {
+    margin-right: var(--spacing-md);
+    cursor: pointer;
+    accent-color: var(--color-primary);
+}
+
+/* Checkboxes */
+.form-group-checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--color-gray-dark);
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: var(--spacing-md);
+    cursor: pointer;
+    accent-color: var(--color-primary);
+}
+
+/* Submit Button */
+.submit-button-piloto {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    color: var(--color-white);
+    padding: var(--spacing-md) var(--spacing-xxl);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: var(--spacing-lg);
+}
+
+.submit-button-piloto:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(139, 157, 195, 0.4);
+}
+
+.submit-button-piloto:active {
+    transform: scale(0.98);
+}
+
+/* Mobile Responsiveness para Modal */
+@media (max-width: 768px) {
+    .modal-piloto-content {
+        width: 95%;
+        padding: var(--spacing-lg);
+        max-height: 95vh;
+    }
+
+    .form-fieldset {
+        padding: var(--spacing-md);
+    }
+
+    .modal-piloto-close {
+        right: var(--spacing-md);
+        top: var(--spacing-md);
+    }
+}
+
