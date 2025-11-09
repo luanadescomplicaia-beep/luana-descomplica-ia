@@ -326,6 +326,12 @@
             font-weight: 600;
         }
 
+        .empty-message {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
         @media (max-width: 768px) {
             table {
                 font-size: 12px;
@@ -390,7 +396,7 @@
             <div class="table-header">
                 <h2>Todas as Candidaturas</h2>
             </div>
-            <div id="loadingMessage" class="loading">Carregando candidaturas...</div>
+            <div id="emptyMessage" class="empty-message" style="display: none;">Nenhuma candidatura recebida ainda</div>
             <table id="candidaturasTable" style="display: none;">
                 <thead>
                     <tr>
@@ -422,49 +428,50 @@
     </div>
 
     <script>
-        const API_URL = window.location.origin;
+        const SENHA_CORRETA = 'Luan@IA2025';
         let senhaAtual = null;
         let candidaturasData = [];
 
         // Login
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const senha = document.getElementById('senha').value;
             
-            try {
-                const response = await fetch(`${API_URL}/api/candidaturas?senha=${encodeURIComponent(senha)}`);
-                
-                if (response.ok) {
-                    senhaAtual = senha;
-                    document.getElementById('loginContainer').style.display = 'none';
-                    document.getElementById('adminContainer').style.display = 'block';
-                    carregarCandidaturas();
-                } else {
-                    document.getElementById('loginError').innerHTML = '<div class="error">❌ Senha incorreta</div>';
-                }
-            } catch (error) {
-                document.getElementById('loginError').innerHTML = '<div class="error">❌ Erro ao conectar</div>';
+            if (senha === SENHA_CORRETA) {
+                senhaAtual = senha;
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('adminContainer').style.display = 'block';
+                carregarCandidaturas();
+            } else {
+                document.getElementById('loginError').innerHTML = '<div class="error">❌ Senha incorreta</div>';
             }
         });
 
-        async function carregarCandidaturas() {
+        function carregarCandidaturas() {
             try {
-                const response = await fetch(`${API_URL}/api/candidaturas?senha=${encodeURIComponent(senhaAtual)}`);
-                const data = await response.json();
-                
-                candidaturasData = data.candidaturas;
+                const stored = localStorage.getItem('candidaturas_piloto');
+                candidaturasData = stored ? JSON.parse(stored) : [];
                 
                 // Atualizar stats
-                document.getElementById('totalCandidaturas').textContent = data.total;
-                document.getElementById('pendentes').textContent = data.candidaturas.filter(c => c.status === 'pendente').length;
-                document.getElementById('aprovados').textContent = data.candidaturas.filter(c => c.status === 'aprovado').length;
-                document.getElementById('rejeitados').textContent = data.candidaturas.filter(c => c.status === 'rejeitado').length;
+                document.getElementById('totalCandidaturas').textContent = candidaturasData.length;
+                document.getElementById('pendentes').textContent = candidaturasData.filter(c => c.status === 'pendente').length;
+                document.getElementById('aprovados').textContent = candidaturasData.filter(c => c.status === 'aprovado').length;
+                document.getElementById('rejeitados').textContent = candidaturasData.filter(c => c.status === 'rejeitado').length;
                 
                 // Renderizar tabela
                 const tbody = document.getElementById('candidaturasBody');
                 tbody.innerHTML = '';
                 
-                data.candidaturas.forEach(candidatura => {
+                if (candidaturasData.length === 0) {
+                    document.getElementById('emptyMessage').style.display = 'block';
+                    document.getElementById('candidaturasTable').style.display = 'none';
+                    return;
+                }
+                
+                document.getElementById('emptyMessage').style.display = 'none';
+                document.getElementById('candidaturasTable').style.display = 'table';
+                
+                candidaturasData.forEach(candidatura => {
                     const row = document.createElement('tr');
                     const data_formatada = new Date(candidatura.criado_em).toLocaleDateString('pt-BR');
                     
@@ -486,9 +493,6 @@
                     `;
                     tbody.appendChild(row);
                 });
-                
-                document.getElementById('loadingMessage').style.display = 'none';
-                document.getElementById('candidaturasTable').style.display = 'table';
             } catch (error) {
                 console.error('Erro:', error);
             }
@@ -565,20 +569,12 @@
             document.getElementById('detailModal').style.display = 'none';
         }
 
-        async function atualizarStatus(id, novoStatus) {
+        function atualizarStatus(id, novoStatus) {
             try {
-                const response = await fetch(`${API_URL}/api/candidaturas/${id}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        status: novoStatus,
-                        senha: senhaAtual
-                    })
-                });
-                
-                if (response.ok) {
+                const candidatura = candidaturasData.find(c => c.id === id);
+                if (candidatura) {
+                    candidatura.status = novoStatus;
+                    localStorage.setItem('candidaturas_piloto', JSON.stringify(candidaturasData));
                     carregarCandidaturas();
                     fecharModal();
                 }
@@ -603,12 +599,15 @@
                 csv += `${c.id},"${c.nome_completo}","${c.email_profissional}","${c.nome_empresa}","${c.solucao}","${c.status}","${data}"\n`;
             });
             
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `candidaturas_${new Date().toISOString().split('T')[0]}.csv`;
-            a.click();
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', `candidaturas_${new Date().toISOString().split('T')[0]}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         // Fechar modal ao clicar fora

@@ -155,30 +155,28 @@ if (formularioPiloto) {
             .join(', ');
         dados.materiais = materiais || 'Nenhum selecionado';
         
+        // Adicionar ID, data e status
+        dados.id = Date.now();
+        dados.criado_em = new Date().toISOString();
+        dados.status = 'pendente';
+        
         console.log('Dados do formulário:', dados);
         
         try {
-            // Enviar para API
-            const response = await fetch('/api/candidaturas', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(dados)
-            });
+            // Salvar no localStorage
+            const stored = localStorage.getItem('candidaturas_piloto');
+            const candidaturas = stored ? JSON.parse(stored) : [];
+            candidaturas.push(dados);
+            localStorage.setItem('candidaturas_piloto', JSON.stringify(candidaturas));
             
-            if (response.ok) {
-                alert(`Obrigada, ${nome}! Sua candidatura foi recebida com sucesso. Vamos analisar e entrar em contato em breve!`);
-                
-                // Limpar o formulário
-                formularioPiloto.reset();
-                
-                // Fechar modal
-                modalPiloto.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            } else {
-                alert('Desculpe, houve um erro ao enviar sua candidatura. Por favor, tente novamente.');
-            }
+            alert(`Obrigada, ${nome}! Sua candidatura foi recebida com sucesso. Vamos analisar e entrar em contato em breve!`);
+            
+            // Limpar o formulário
+            formularioPiloto.reset();
+            
+            // Fechar modal
+            modalPiloto.classList.remove('active');
+            document.body.style.overflow = 'auto';
         } catch (error) {
             console.error('Erro ao enviar candidatura:', error);
             alert('Desculpe, houve um erro ao enviar sua candidatura. Por favor, tente novamente.');
