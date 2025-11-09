@@ -1,19 +1,5 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "routes": [
-    {
-      "src": "/admin\\.html",
-      "dest": "/admin.html"
-    },
-    {
-      "src": "/api/(.*)",
-      "dest": "/api"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "outputDirectory": "dist"
 }
 
