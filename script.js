@@ -139,7 +139,7 @@ window.addEventListener('click', (e) => {
 // Formulário de Candidatura Piloto
 const formularioPiloto = document.getElementById('formularioPiloto');
 if (formularioPiloto) {
-    formularioPiloto.addEventListener('submit', (e) => {
+    formularioPiloto.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         const nome = document.getElementById('nome_completo').value;
@@ -157,15 +157,32 @@ if (formularioPiloto) {
         
         console.log('Dados do formulário:', dados);
         
-        // Enviar para email (simulado)
-        alert(`Obrigada, ${nome}! Sua candidatura foi recebida com sucesso. Vamos analisar e entrar em contato em breve!`);
-        
-        // Limpar o formulário
-        formularioPiloto.reset();
-        
-        // Fechar modal
-        modalPiloto.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        try {
+            // Enviar para API
+            const response = await fetch('/api/candidaturas', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            });
+            
+            if (response.ok) {
+                alert(`Obrigada, ${nome}! Sua candidatura foi recebida com sucesso. Vamos analisar e entrar em contato em breve!`);
+                
+                // Limpar o formulário
+                formularioPiloto.reset();
+                
+                // Fechar modal
+                modalPiloto.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            } else {
+                alert('Desculpe, houve um erro ao enviar sua candidatura. Por favor, tente novamente.');
+            }
+        } catch (error) {
+            console.error('Erro ao enviar candidatura:', error);
+            alert('Desculpe, houve um erro ao enviar sua candidatura. Por favor, tente novamente.');
+        }
     });
 }
 
