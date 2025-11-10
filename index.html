@@ -130,7 +130,7 @@
                     <p class="produto-descricao">A adoção da Inteligência Artificial nas empresas não começa pela tecnologia, começa pelas pessoas. A palestra "IA Estratégica para Empresas" foi criada para mostrar, de forma simples e prática, como usar a IA com segurança, clareza e propósito. Mais do que ensinar ferramentas, o foco é mudar a mentalidade de líderes e equipes, despertando uma nova forma de pensar, decidir e inovar. Com linguagem acessível e aplicação imediata, esse treinamento prepara sua empresa para usar a IA de forma consciente, produtiva e humana, transformando tecnologia em vantagem real e sustentável.</p>
                     <div class="produto-footer">
                         <span class="produto-preco">Consulte</span>
-                        <a href="#contato" class="produto-link">Saiba Mais</a>
+                        <button class="produto-link" onclick="document.getElementById('modalPalestra').style.display='flex'">Saiba Mais</button>
                     </div>
                 </div>
 
@@ -145,7 +145,7 @@
                     <p class="produto-descricao-completa">O DP360° é uma parceria entre três profissionais apaixonados por desenvolvimento humano e inovação, Tiago Mendes, Fabiana Valeriano e Luana Durrewald. Mais do que um treinamento, é uma imersão que conecta rotinas técnicas do RH, gestão estratégica e Inteligência Artificial aplicada à produtividade. Criado para preparar profissionais e líderes para o futuro do trabalho, o DP360° promove uma visão 360° sobre o RH moderno, unindo técnica, gestão e inovação em um só dia de aprendizado transformador.</p>
                     <div class="produto-footer">
                         <span class="produto-preco">Consulte</span>
-                        <a href="#contato" class="produto-link">Saiba Mais</a>
+                        <button class="produto-link" onclick="document.getElementById('modalDP360').style.display='flex'">Saiba Mais</button>
                     </div>
                 </div>
 
@@ -165,7 +165,7 @@
                     </div>
                     <p class="produto-descricao-pequena"><strong>Entrega:</strong> mapeamento → configuração do agente → link de uso → suporte técnico durante o período da contratação.</p>
                     <div class="produto-footer">
-                        <a href="#contato" class="produto-link">Saiba Mais</a>
+                        <button class="produto-link" onclick="document.getElementById('modalAgente').style.display='flex'">Saiba Mais</button>
                     </div>
                 </div>
 
@@ -185,7 +185,7 @@
                     </div>
                     <p class="produto-descricao-pequena"><strong>Entrega:</strong> conexão dos dados → relatório visual + insights práticos → suporte técnico durante o período da contratação.</p>
                     <div class="produto-footer">
-                        <a href="#contato" class="produto-link">Saiba Mais</a>
+                        <button class="produto-link" onclick="document.getElementById('modalDados').style.display='flex'">Saiba Mais</button>
                     </div>
                 </div>
 
@@ -205,12 +205,266 @@
                     </div>
                     <p class="produto-descricao-pequena"><strong>Entrega:</strong> diagnóstico → setup das automações gratuitas → testes e validação → suporte técnico durante o período da contratação.</p>
                     <div class="produto-footer">
-                        <a href="#contato" class="produto-link">Saiba Mais</a>
+                        <button class="produto-link" onclick="document.getElementById('modalAutomacao').style.display='flex'">Saiba Mais</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modais de Produtos -->
+    <!-- Modal Palestra -->
+    <div id="modalPalestra" class="modal-produto">
+        <div class="modal-produto-content">
+            <button class="modal-close" id="closePalestra">&times;</button>
+            <h2>Palestra "IA Estratégica para Empresas"</h2>
+            <p class="modal-subtitle">Transforme a Inteligência Artificial em vantagem competitiva para o seu negócio.</p>
+            
+            <div class="modal-body">
+                <h3>Uma palestra prática e acessível para incorporar IA na cultura da empresa, aumentar a produtividade e garantir segurança e governança.</h3>
+                
+                <div class="modal-section">
+                    <h4>Para quem é</h4>
+                    <ul>
+                        <li>Diretores, líderes e equipes que querem adotar IA no dia-a-dia, sem jargões ou barreiras tecnológicas.</li>
+                        <li>Organizações que buscam colocar a cultura de IA como parte integrante de seus processos e não apenas um experimento pontual.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>O que você vai aprender</h4>
+                    <ul>
+                        <li>Como integrar a IA aos processos cotidianos da empresa, tornando-a parte da cultura organizacional.</li>
+                        <li>Métodos para elevar a produtividade das equipes: estudos mostram que trabalhadores que usam IA generativa podem ter até ≈ 33% a mais de produtividade por hora trabalhada.</li>
+                        <li>Governança, ética e segurança no uso da IA: tratamento de dados, riscos e o novo padrão internacional ISO/IEC 42001 para sistemas de IA.</li>
+                        <li>Como estruturar a IA para gerar resultados mensuráveis — e não apenas promessas.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Benefícios da palestra</h4>
+                    <ul>
+                        <li>Sua empresa sai com insights acionáveis, prontos para aplicar desde o dia seguinte.</li>
+                        <li>Transforme a IA em parte da cultura, não apenas um "projeto de TI".</li>
+                        <li>Aumente a produtividade, reduza retrabalho e libere as equipes para entregas com foco estratégico.</li>
+                        <li>Garanta que o uso de IA esteja alinhado à segurança da informação, ao compliance e à gestão de riscos.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-cta">
+                    <a href="https://wa.me/5567999999999?text=Olá%2C%20quero%20saber%20mais%20sobre%20a%20palestra%20IA%20Estratégica%20para%20Empresas." target="_blank" class="cta-whatsapp">💬 Quero entender como funciona</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal DP360° -->
+    <div id="modalDP360" class="modal-produto">
+        <div class="modal-produto-content">
+            <button class="modal-close" id="closeDP360">&times;</button>
+            <h2>Treinamento DP360° - Técnica, Gestão e Inovação em RH</h2>
+            <p class="modal-subtitle">Três visões, um propósito: transformar o RH em uma área técnica, humana e inovadora.</p>
+            
+            <div class="modal-body">
+                <h3>Um treinamento que une a expertise de três profissionais complementares — técnica, gestão e inteligência artificial — para preparar o RH do futuro de forma prática e integrada.</h3>
+                
+                <div class="modal-section">
+                    <h4>Os 3 Pilares</h4>
+                    <div class="pilares-grid">
+                        <div class="pilar">
+                            <h5>⚙️ Técnica e Conformidade</h5>
+                            <p>O domínio das rotinas que sustentam o RH moderno: admissões, contratos, folha, auditorias e legislação trabalhista.</p>
+                        </div>
+                        <div class="pilar">
+                            <h5>🌿 Gestão e Liderança</h5>
+                            <p>Como desenvolver pessoas, alinhar cultura e fortalecer a liderança como base do desempenho.</p>
+                        </div>
+                        <div class="pilar">
+                            <h5>🤖 Inovação e IA</h5>
+                            <p>Como usar a IA para automatizar processos, aumentar a produtividade e elevar a qualidade das decisões.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Para quem é</h4>
+                    <ul>
+                        <li>Profissionais de Recursos Humanos e Departamento Pessoal</li>
+                        <li>Gestores e líderes de equipes</li>
+                        <li>Profissionais de Contabilidade, Administração e Finanças</li>
+                        <li>Empresários e empreendedores que possuem equipes próprias</li>
+                        <li>Consultores, analistas e coordenadores de RH</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-cta">
+                    <a href="https://wa.me/5567999999999?text=Olá%2C%20quero%20saber%20mais%20sobre%20o%20treinamento%20DP360%C2%B0." target="_blank" class="cta-whatsapp">💬 Quero entender como funciona</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Agente GPT -->
+    <div id="modalAgente" class="modal-produto">
+        <div class="modal-produto-content">
+            <button class="modal-close" id="closeAgente">&times;</button>
+            <h2>Agente GPT Personalizado</h2>
+            <p class="modal-subtitle">Centralize o conhecimento da sua empresa e elimine a dependência de pessoas.</p>
+            
+            <div class="modal-body">
+                <h3>Um assistente de Inteligência Artificial criado sob medida para armazenar, organizar e responder tudo o que sua equipe precisa saber — com segurança, agilidade e suporte contínuo.</h3>
+                
+                <div class="modal-section">
+                    <h4>A dor que toda empresa sente</h4>
+                    <p><strong>Toda empresa tem conhecimento. Poucas conseguem organizá-lo.</strong></p>
+                    <ul>
+                        <li>Manuais e políticas internas que ninguém lê.</li>
+                        <li>Equipes novas que repetem dúvidas antigas.</li>
+                        <li>Rotatividade alta e perda de know-how.</li>
+                        <li>Processos que dependem de uma única pessoa "que sabe tudo".</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Como funciona</h4>
+                    <p>O Agente GPT é treinado com os conteúdos internos da sua empresa — manuais, procedimentos, políticas, materiais de treinamento e documentos operacionais.</p>
+                    <p>Depois de configurado, ele se torna o canal oficial de consulta da equipe, capaz de:</p>
+                    <ul>
+                        <li>Responder dúvidas internas e operacionais em segundos.</li>
+                        <li>Explicar políticas e procedimentos com base nos documentos oficiais.</li>
+                        <li>Orientar novos colaboradores durante a integração.</li>
+                        <li>Reduzir o tempo de resposta entre setores e gestores.</li>
+                        <li>Garantir consistência e segurança nas informações compartilhadas.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Por que sua empresa precisa</h4>
+                    <ul>
+                        <li><strong>Centralização:</strong> todo o conhecimento corporativo em um só lugar.</li>
+                        <li><strong>Autonomia:</strong> colaboradores resolvem dúvidas sem depender de outras pessoas.</li>
+                        <li><strong>Produtividade:</strong> menos interrupções, mais tempo para execução.</li>
+                        <li><strong>Segurança:</strong> respostas baseadas apenas em documentos internos autorizados.</li>
+                        <li><strong>Retenção:</strong> a empresa não perde o que aprendeu quando alguém sai.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-cta">
+                    <a href="https://wa.me/5567999999999?text=Olá%2C%20quero%20saber%20mais%20sobre%20o%20Agente%20GPT%20Personalizado." target="_blank" class="cta-whatsapp">💬 Quero entender como funciona</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Análise de Dados -->
+    <div id="modalDados" class="modal-produto">
+        <div class="modal-produto-content">
+            <button class="modal-close" id="closeDados">&times;</button>
+            <h2>Análise de Dados com IA</h2>
+            <p class="modal-subtitle">Transforme planilhas, relatórios e anotações soltas em decisões estratégicas e seguras.</p>
+            
+            <div class="modal-body">
+                <h3>Deixe de olhar para os números. Comece a olhar para o futuro.</h3>
+                
+                <div class="modal-section">
+                    <h4>O que é</h4>
+                    <p>Uma consultoria prática e estratégica que ajuda empresas a entender, organizar e usar seus dados para tomar decisões com clareza e propósito — com o apoio da Inteligência Artificial.</p>
+                    <p>Aqui, a IA não substitui a gestão: ela amplifica o olhar estratégico sobre o que já existe dentro da empresa.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>As dores que resolvemos</h4>
+                    <ul>
+                        <li>Dados espalhados em planilhas, e-mails e sistemas que ninguém confia.</li>
+                        <li>Relatórios que não viram ação e não ajudam na estratégia.</li>
+                        <li>Dependência de consultorias caras ou profissionais altamente técnicos.</li>
+                        <li>Insegurança na hora de decidir e falta de visão de futuro.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Como funciona</h4>
+                    <ul>
+                        <li><strong>Mapeamento estratégico</strong> das dores e dos dados existentes.</li>
+                        <li><strong>Diagnóstico e definição de objetivos</strong> para resultados que você quer alcançar.</li>
+                        <li><strong>Plano de ação com apoio da IA</strong> para usar a IA na leitura e interpretação de dados.</li>
+                        <li><strong>Acompanhamento estratégico</strong> com clareza sobre os próximos passos.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Resultados esperados</h4>
+                    <ul>
+                        <li>Clareza sobre os números e indicadores que realmente importam.</li>
+                        <li>Um plano de ação estruturado e coerente com os objetivos do negócio.</li>
+                        <li>Decisões estratégicas baseadas em dados reais e não em achismos.</li>
+                        <li>Redução de retrabalho e tempo gasto com análises improdutivas.</li>
+                        <li>Uma visão clara do futuro da empresa e dos caminhos para chegar até lá.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-cta">
+                    <a href="https://wa.me/5567999999999?text=Olá%2C%20quero%20saber%20mais%20sobre%20a%20consultoria%20de%20Análise%20de%20Dados%20com%20IA." target="_blank" class="cta-whatsapp">💬 Quero entender como funciona</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Automação -->
+    <div id="modalAutomacao" class="modal-produto">
+        <div class="modal-produto-content">
+            <button class="modal-close" id="closeAutomacao">&times;</button>
+            <h2>Automação de Processos Simples</h2>
+            <p class="modal-subtitle">Automatize tarefas repetitivas com ferramentas gratuitas e ganhe tempo para pensar estrategicamente.</p>
+            
+            <div class="modal-body">
+                <h3>Automatizar é simplificar, não complicar.</h3>
+                
+                <div class="modal-section">
+                    <h4>O que é</h4>
+                    <p>Uma consultoria prática e acessível para identificar tarefas manuais, repetitivas ou demoradas e transformá-las em processos automáticos, simples e funcionais — sem custo de ferramentas e sem precisar de conhecimento técnico.</p>
+                    <p>A proposta é usar a Inteligência Artificial e automações leves para liberar tempo, reduzir erros e aumentar o foco estratégico do time.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>As dores que resolvemos</h4>
+                    <ul>
+                        <li>Repetição de tarefas operacionais que tomam horas da equipe.</li>
+                        <li>Falta de integração entre planilhas, e-mails e formulários.</li>
+                        <li>Dificuldade de acompanhar prazos, status e responsáveis.</li>
+                        <li>Processos "presos" em uma pessoa só.</li>
+                        <li>Falta de tempo para planejar ou inovar.</li>
+                    </ul>
+                    <p><strong>Nosso objetivo é simples:</strong> tirar o peso das tarefas operacionais e devolver o foco para o que realmente importa — a estratégia.</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Como funciona</h4>
+                    <ul>
+                        <li><strong>Mapeamento das tarefas repetitivas</strong> - Identificamos juntos onde estão os gargalos.</li>
+                        <li><strong>Diagnóstico estratégico</strong> - Priorizamos o que vai trazer o maior ganho de tempo.</li>
+                        <li><strong>Plano de automação simples e gratuito</strong> - Criamos um plano prático usando ferramentas 100% gratuitas.</li>
+                        <li><strong>Implementação e acompanhamento</strong> - Eu configuro as automações e ensino sua equipe.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-section">
+                    <h4>Resultados esperados</h4>
+                    <ul>
+                        <li>Mais tempo para pensar estrategicamente, menos tempo em tarefas manuais.</li>
+                        <li>Redução de falhas e retrabalho.</li>
+                        <li>Equipes mais produtivas e organizadas.</li>
+                        <li>Processos mais previsíveis e automáticos — sem custo adicional.</li>
+                        <li>O foco deixa de ser apagar incêndios e passa a ser construir o futuro.</li>
+                    </ul>
+                </div>
+                
+                <div class="modal-cta">
+                    <a href="https://wa.me/5567999999999?text=Olá%2C%20quero%20saber%20mais%20sobre%20Automação%20de%20Processos%20Simples." target="_blank" class="cta-whatsapp">💬 Quero entender como funciona</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Oferta Piloto Section -->
     <section class="oferta-piloto">

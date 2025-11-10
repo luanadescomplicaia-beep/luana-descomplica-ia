@@ -184,3 +184,52 @@ if (formularioPiloto) {
     });
 }
 
+
+
+
+// ===== MODAIS DE PRODUTOS =====
+// Função para fechar modais de produtos
+function closeProductModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Fechar modais ao clicar no botão X
+document.getElementById('closePalestra')?.addEventListener('click', () => closeProductModal('modalPalestra'));
+document.getElementById('closeDP360')?.addEventListener('click', () => closeProductModal('modalDP360'));
+document.getElementById('closeAgente')?.addEventListener('click', () => closeProductModal('modalAgente'));
+document.getElementById('closeDados')?.addEventListener('click', () => closeProductModal('modalDados'));
+document.getElementById('closeAutomacao')?.addEventListener('click', () => closeProductModal('modalAutomacao'));
+
+// Fechar modais ao clicar fora deles
+window.addEventListener('click', (e) => {
+    const modals = ['modalPalestra', 'modalDP360', 'modalAgente', 'modalDados', 'modalAutomacao'];
+    
+    modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal && e.target === modal) {
+            closeProductModal(modalId);
+        }
+    });
+});
+
+// Fechar modais ao pressionar ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modals = ['modalPalestra', 'modalDP360', 'modalAgente', 'modalDados', 'modalAutomacao'];
+        modals.forEach(modalId => closeProductModal(modalId));
+    }
+});
+
+// Prevenir scroll quando modal está aberto
+function openProductModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
